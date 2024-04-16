@@ -1,0 +1,120 @@
+CREATE TABLE Pizza (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    ingredientes VARCHAR(255),
+    sabor VARCHAR(100),
+    preço DECIMAL(10, 2),
+    descrição TEXT,
+    tamanho VARCHAR(50),
+    material_embalagem VARCHAR(100),
+    tamanho_embalagem VARCHAR(50),
+    preço_embalagem DECIMAL(10, 2)
+);
+
+CREATE TABLE Receita (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    instrucoes TEXT,
+    autor VARCHAR(100)
+);
+
+CREATE TABLE Pizzaiolo (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100),
+    salario DECIMAL(10, 2)
+);
+
+INSERT INTO Pizza (ingredientes, sabor, preço, descrição, tamanho, material_embalagem, tamanho_embalagem, preço_embalagem)
+VALUES
+('Queijo, Pepperoni, Champignon', 'Pizza Pepperoni', 15.99, 'Deliciosa pizza de pepperoni com queijo derretido e champignon.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Frango, Catupiry, Milho', 'Pizza Frango com Catupiry', 17.50, 'Saborosa pizza de frango desfiado com catupiry cremoso e milho.', 'Média', 'Papelão', 'Média', 1.00),
+('Mussarela, Tomate, Manjericão', 'Pizza Margherita', 14.99, 'Clássica pizza margherita com queijo mussarela, tomate fresco e manjericão.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Calabresa, Cebola, Pimentão', 'Pizza Calabresa', 16.00, 'Pizza de calabresa picante com cebola e pimentão.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Presunto, Mussarela, Ovos', 'Pizza Portuguesa', 16.50, 'Pizza portuguesa com presunto, mussarela e ovos.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Pepperoni, Bacon, Linguiça', 'Pizza Carnívora', 18.00, 'Pizza carregada de carne com pepperoni, bacon e linguiça.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Palmito, Catupiry, Azeitona', 'Pizza Palmito', 17.00, 'Deliciosa pizza de palmito com catupiry cremoso e azeitonas.', 'Média', 'Papelão', 'Média', 1.00),
+('Calabresa, Mussarela, Tomate', 'Pizza Calabresa Especial', 16.50, 'Pizza de calabresa especial com queijo mussarela e rodelas de tomate.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Frango, Catupiry, Batata Palha', 'Pizza Frango com Catupiry e Batata Palha', 17.99, 'Pizza de frango com catupiry e crocante batata palha.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Atum, Cebola, Tomate', 'Pizza Atum', 15.00, 'Pizza de atum com cebola e rodelas de tomate.', 'Média', 'Papelão', 'Média', 1.00),
+('Quatro Queijos', 'Pizza Quatro Queijos', 16.99, 'Deliciosa pizza com uma seleção de quatro queijos diferentes.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Bacon, Milho, Catupiry', 'Pizza Bacon com Milho e Catupiry', 17.50, 'Pizza de bacon com milho e generosa camada de catupiry.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Presunto, Mussarela, Tomate Seco', 'Pizza Italiana', 18.50, 'Pizza italiana com presunto, mussarela e tomate seco.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Calabresa, Bacon, Ovos', 'Pizza Paulistana', 17.00, 'Pizza típica de São Paulo com calabresa, bacon e ovos.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Rúcula, Tomate Seco, Parmesão', 'Pizza Rúcula com Tomate Seco', 16.99, 'Pizza leve com rúcula, tomate seco e lascas de parmesão.', 'Média', 'Papelão', 'Média', 1.00),
+('Pepperoni, Champignon, Azeitona', 'Pizza Pepperoni Especial', 18.50, 'Pizza especial com pepperoni, champignon e azeitonas.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Lombo, Catupiry, Palmito', 'Pizza Lombo com Catupiry e Palmito', 18.99, 'Pizza com lombo suíno, catupiry cremoso e palmito.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Alho, Bacon, Tomate', 'Pizza Alho e Bacon', 16.00, 'Pizza com sabor marcante de alho, bacon crocante e rodelas de tomate.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Peito de Peru, Mussarela, Brócolis', 'Pizza Light', 15.50, 'Pizza leve com peito de peru, queijo mussarela e brócolis.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Calabresa, Catupiry, Ervilha', 'Pizza Calabresa com Catupiry', 17.00, 'Pizza de calabresa com generosa camada de catupiry e ervilhas.', 'Média', 'Papelão', 'Média', 1.00),
+('Presunto, Palmito, Azeitona', 'Pizza Palmito Especial', 17.50, 'Pizza especial com presunto, palmito e azeitonas.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Mussarela, Bacon, Tomate', 'Pizza Bacon e Mussarela', 16.50, 'Pizza com bacon crocante, queijo mussarela e rodelas de tomate.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Carne Moída, Mussarela, Milho', 'Pizza de Carne Moída', 17.99, 'Pizza com carne moída, queijo mussarela e milho.', 'Média', 'Papelão', 'Média', 1.00),
+('Linguiça, Catupiry, Azeitona', 'Pizza Linguiça com Catupiry', 17.50, 'Pizza de linguiça com catupiry cremoso e azeitonas.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Tomate, Milho, Ervilha', 'Pizza Vegetariana', 15.00, 'Pizza vegetariana com tomate fresco, milho e ervilhas.', 'Média', 'Papelão', 'Média', 1.00),
+('Presunto, Champignon, Azeitona', 'Pizza Presunto Especial', 17.99, 'Pizza especial com presunto, champignon e azeitonas.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Calabresa, Milho, Catupiry', 'Pizza Calabresa com Catupiry', 16.50, 'Pizza de calabresa com generosa camada de catupiry e milho.', 'Média', 'Papelão', 'Média', 1.00),
+('Queijo, Tomate, Azeitona', 'Pizza Margherita Especial', 16.99, 'Pizza especial margherita com queijo, tomate e azeitonas.', 'Grande', 'Papelão', 'Grande', 1.50),
+('Pepperoni, Champignon, Pimentão', 'Pizza Pepperoni Especial', 18.50, 'Pizza especial com pepperoni, champignon e pimentões.', 'Grande', 'Papelão', 'Grande', 1.50);
+
+
+INSERT INTO Pizzaiolo (nome, salario)
+VALUES ('João Silva', 2500.00),
+       ('Maria Oliveira', 2700.00),
+       ('Pedro Santos', 2600.00),
+       ('Ana Rodrigues', 2550.00),
+       ('Luiz Costa', 2750.00),
+       ('Carla Souza', 2800.00),
+       ('Antônio Pereira', 2650.00),
+       ('Fernanda Almeida', 2550.00),
+       ('Rafael Nunes', 2700.00),
+       ('Camila Vieira', 2600.00),
+       ('Marcos Ferreira', 2750.00),
+       ('Juliana Lima', 2650.00),
+       ('Paulo Gomes', 2850.00),
+       ('Mariana Martins', 2750.00),
+       ('Carlos Henrique', 2700.00),
+       ('Felipe Oliveira', 2600.00),
+       ('Amanda Silva', 2700.00),
+       ('José Costa', 2650.00),
+       ('Larissa Pereira', 2550.00),
+       ('Gustavo Almeida', 2750.00),
+       ('Luana Rodrigues', 2700.00),
+       ('Ricardo Vieira', 2800.00),
+       ('Daniela Fernandes', 2650.00),
+       ('Bruno Martins', 2700.00),
+       ('Tatiane Lima', 2600.00),
+       ('Roberto Gomes', 2750.00),
+       ('Renata Sousa', 2650.00),
+       ('Diego Oliveira', 2800.00),
+       ('Patrícia Costa', 2750.00);
+
+INSERT INTO Receita (instrucoes, autor)
+VALUES ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a mussarela, champignon, alho-poró e azeitonas verdes. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Antonio'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a mussarela, camarão, alho, pimenta vermelha e coentro. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Maria'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o bacon, ovos e cebola caramelizada. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef João'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com os cogumelos, queijo brie, nozes e mel. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Ana'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o salmão defumado, creme de queijo e alcaparras. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Luiz'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a abobrinha, berinjela, pimentão amarelo e tomate cereja. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Carla'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a linguiça toscana, radicchio e queijo pecorino. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Pedro'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o presunto Parma, rúcula e queijo parmesão em lascas. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Fernanda'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o camarão, polvo, lula e mexilhões. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Rafael'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o bacon, abacate e ovo frito. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Camila'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com os cogumelos selvagens, espinafre e cebola caramelizada. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Marcos'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a carne de pato confitada, cebola roxa e geleia de laranja. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Juliana'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o queijo de cabra, cebola caramelizada e mel trufado. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Paulo'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o salmão defumado, creme de alho-poró e endro fresco. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Mariana'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o presunto de Parma, figos, rúcula e queijo gorgonzola. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Carlos'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a mussarela, champignon, alho-poró e azeitonas verdes. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Antonio'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a mussarela, camarão, alho, pimenta vermelha e coentro. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Maria'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o bacon, ovos e cebola caramelizada. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef João'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com os cogumelos, queijo brie, nozes e mel. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Ana'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o salmão defumado, creme de queijo e alcaparras. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Luiz'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a abobrinha, berinjela, pimentão amarelo e tomate cereja. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Carla'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a linguiça toscana, radicchio e queijo pecorino. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Pedro'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o presunto Parma, rúcula e queijo parmesão em lascas. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Fernanda'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o camarão, polvo, lula e mexilhões. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Rafael'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o bacon, abacate e ovo frito. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Camila'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com os cogumelos selvagens, espinafre e cebola caramelizada. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Marcos'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com a carne de pato confitada, cebola roxa e geleia de laranja. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Juliana'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o queijo de cabra, cebola caramelizada e mel trufado. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Paulo'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o salmão defumado, creme de alho-poró e endro fresco. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Mariana'),
+       ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o presunto de Parma, figos, rúcula e queijo gorgonzola. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Carlos');
+
