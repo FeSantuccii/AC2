@@ -1,4 +1,4 @@
-CREATE TABLE Pizza (
+CREATE TABLE Pizza ( --criando tabela Pizza
     id INT PRIMARY KEY AUTO_INCREMENT,
     ingredientes VARCHAR(255),
     sabor VARCHAR(100),
@@ -10,13 +10,13 @@ CREATE TABLE Pizza (
     preço_embalagem DECIMAL(10, 2)
 );
 
-CREATE TABLE Receita (
+CREATE TABLE Receita ( --criando tabela Receita
     id INT PRIMARY KEY AUTO_INCREMENT,
     instrucoes TEXT,
     autor VARCHAR(100)
 );
 
-CREATE TABLE Pizzaiolo (
+CREATE TABLE Pizzaiolo ( --criando tabela Pizzaiolo
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100),
     salario DECIMAL(10, 2)
@@ -117,4 +117,26 @@ VALUES ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície
        ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o queijo de cabra, cebola caramelizada e mel trufado. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Paulo'),
        ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o salmão defumado, creme de alho-poró e endro fresco. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Mariana'),
        ('1. Pré-aqueça o forno a 220°C. 2. Estique a massa em uma superfície enfarinhada. 3. Espalhe o molho de tomate uniformemente sobre a massa. 4. Cubra com o presunto de Parma, figos, rúcula e queijo gorgonzola. 5. Asse por 12-15 minutos ou até que a borda esteja dourada.', 'Chef Carlos');
+
+
+--RELATÓRIOS:
+--Crie um relatório com todas as pizzas e os pizzaiolos aptos a produzi-las;
+SELECT Pizza.sabor, Pizzaiolo.nome
+FROM Pizza
+INNER JOIN Pizzaiolo ON Pizza.tamanho = Pizzaiolo.especialidade;
+
+--Crie um relatório com todas as pizzas e seus ingredientes;
+SELECT id, sabor, ingredientes
+FROM Pizza;
+
+--Crie um relatório com todos os ingredientes e as pizzas onde são utilizados;
+SELECT ingredientes, GROUP_CONCAT(sabor) AS pizzas
+FROM Pizza
+GROUP BY ingredientes;
+
+--Crie um relatório com os sabores de todas as pizzas, o nome dos pizzaiolos que as fazem e as instruções para produzi-las;
+SELECT Pizza.sabor, Pizzaiolo.nome, Receita.instrucoes
+FROM Pizza
+INNER JOIN Pizzaiolo ON Pizza.tamanho = Pizzaiolo.especialidade
+INNER JOIN Receita ON Pizza.sabor = Receita.autor;
 
