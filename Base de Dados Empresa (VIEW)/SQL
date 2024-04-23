@@ -1,23 +1,23 @@
 create table marcas (     --criando tabela marcas
-  mrc_id			int		auto_increment		primary key,
+  mrc_id			int		IDENTITY(1,1)		primary key,
   mrc_nome			varchar(50)	not null,
   mrc_nacionalidade varchar(50)
  );
  
 create table produtos (   --criando tabela produtos
-  prd_id			int		auto_increment		primary key,
+  prd_id			int		IDENTITY(1,1)		primary key,
   prd_nome			varchar(50)	not null,
   prd_qtd_estoque	int 		not null  default 0,
   prd_estoque_mim	int 		not null  default 0,
-  prd_data_fabricacao timestamp			  default now(),
-  prd_perecivel		boolean,
+  prd_data_fabricacao date,
+  prd_perecivel		int,    --0 para falso e 1 para verdadeiro,
   prd_valor			decimal(10,2),
   prd_marca_id		int,
   constraint fk_marcas	foreign key(prd_marca_id) references marcas(mrc_id)
  );
   
 create table fornecedores (    --criando tabela fornecedores
-  frn_id		int 		auto_increment		primary key,
+  frn_id		int 		IDENTITY(1,1)		primary key,
   frn_nome		varchar(50)	not null,
   frn_email		varchar(50)
 );
@@ -41,36 +41,36 @@ VALUES
 
 INSERT INTO produtos (prd_nome, prd_qtd_estoque, prd_estoque_mim, prd_data_fabricacao, prd_perecivel, prd_valor, prd_marca_id)
 VALUES
-('Tênis esportivo Nike', 200, 50, '2024-04-15', false, 150.00, 1),
-('Camiseta esportiva Nike', 150, 30, '2024-04-16', false, 80.00, 1),
-('Chuteira de futebol Nike', 100, 20, '2024-04-17', false, 200.00, 1),
-('Bola de basquete Nike', 180, 40, '2024-04-18', false, 30.00, 1),
-('Relógio esportivo Adidas', 250, 60, '2024-04-19', false, 120.00, 2),
-('Mochila escolar Adidas', 120, 25, '2024-04-20', false, 70.00, 2),
-('Boné de beisebol Adidas', 80, 15, '2024-04-21', false, 40.00, 2),
-('Meias esportivas Adidas', 300, 70, '2024-04-22', false, 15.00, 2),
-('Carro compacto Toyota', 220, 50, '2024-04-23', false, 15000.00, 3),
-('SUV Toyota', 150, 30, '2024-04-24', false, 25000.00, 3),
-('Caminhonete Toyota', 180, 40, '2024-04-25', false, 30000.00, 3),
-('TV de tela grande Samsung', 100, 25, '2024-04-26', false, 1000.00, 4),
-('Smartphone Samsung', 200, 50, '2024-04-27', false, 800.00, 4),
-('Tablet Samsung', 130, 35, '2024-04-28', false, 500.00, 4),
-('Frigobar Samsung', 250, 60, '2024-04-29', false, 300.00, 4),
-('Shampoo anti-caspa L''Oréal', 160, 45, '2024-04-30', false, 20.00, 5),
-('Creme facial hidratante L''Oréal', 90, 20, '2024-05-01', false, 35.00, 5),
-('Perfume masculino L''Oréal', 280, 65, '2024-05-02', false, 70.00, 5),
-('Perfume feminino L''Oréal', 170, 40, '2024-05-03', false, 65.00, 5),
-('Fone de ouvido sem fio Sony', 200, 50, '2024-05-04', false, 150.00, 6),
-('Câmera digital Sony', 120, 30, '2024-05-05', false, 300.00, 6),
-('Console de videogame Sony', 220, 55, '2024-05-06', false, 400.00, 6),
-('Caixa de chocolates Nestlé', 140, 35, '2024-05-07', true, 10.00, 7),
-('Barra de cereal Nestlé', 180, 45, '2024-05-08', true, 5.00, 7),
-('Pote de sorvete Nestlé', 100, 25, '2024-05-09', true, 15.00, 7),
-('Água mineral Nestlé', 240, 60, '2024-05-10', true, 2.00, 7),
-('Refrigerante de cola Coca-Cola', 130, 30, '2024-05-11', true, 4.00, 8),
-('Refrigerante de guaraná Coca-Cola', 190, 50, '2024-05-12', true, 4.00, 8),
-('Refrigerante de laranja Coca-Cola', 150, 35, '2024-05-13', true, 4.00, 8),
-('Refrigerante de limão Coca-Cola', 200, 45, '2024-05-14', true, 4.00, 8);
+('Tênis esportivo Nike', 200, 50, '2024-04-15', 0, 150.00, 1),
+('Camiseta esportiva Nike', 150, 30, '2024-04-16', 0, 80.00, 1),
+('Chuteira de futebol Nike', 100, 20, '2024-04-17', 0, 200.00, 1),
+('Bola de basquete Nike', 180, 40, '2024-04-18', 0, 30.00, 1),
+('Relógio esportivo Adidas', 250, 60, '2024-04-19', 0, 120.00, 2),
+('Mochila escolar Adidas', 120, 25, '2024-04-20', 0, 70.00, 2),
+('Boné de beisebol Adidas', 80, 15, '2024-04-21', 0, 40.00, 2),
+('Meias esportivas Adidas', 300, 70, '2024-04-22', 0, 15.00, 2),
+('Carro compacto Toyota', 220, 50, '2024-04-23', 0, 15000.00, 3),
+('SUV Toyota', 150, 30, '2024-04-24', 0, 25000.00, 3),
+('Caminhonete Toyota', 180, 40, '2024-04-25', 0, 30000.00, 3),
+('TV de tela grande Samsung', 100, 25, '2024-04-26', 0, 1000.00, 4),
+('Smartphone Samsung', 200, 50, '2024-04-27', 0, 800.00, 4),
+('Tablet Samsung', 130, 35, '2024-04-28', 0, 500.00, 4),
+('Frigobar Samsung', 250, 60, '2024-04-29', 0, 300.00, 4),
+('Shampoo anti-caspa L''Oréal', 160, 45, '2024-04-30', 0, 20.00, 5),
+('Creme facial hidratante L''Oréal', 90, 20, '2024-05-01', 0, 35.00, 5),
+('Perfume masculino L''Oréal', 280, 65, '2024-05-02', 0, 70.00, 5),
+('Perfume feminino L''Oréal', 170, 40, '2024-05-03', 0, 65.00, 5),
+('Fone de ouvido sem fio Sony', 200, 50, '2024-05-04', 0, 150.00, 6),
+('Câmera digital Sony', 120, 30, '2024-05-05', 0, 300.00, 6),
+('Console de videogame Sony', 220, 55, '2024-05-06', 0, 400.00, 6),
+('Caixa de chocolates Nestlé', 140, 35, '2024-05-07', 1, 10.00, 7),
+('Barra de cereal Nestlé', 180, 45, '2024-05-08', 1, 5.00, 7),
+('Pote de sorvete Nestlé', 100, 25, '2024-05-09', 1, 15.00, 7),
+('Água mineral Nestlé', 240, 60, '2024-05-10', 1, 2.00, 7),
+('Refrigerante de cola Coca-Cola', 130, 30, '2024-05-11', 1, 4.00, 8),
+('Refrigerante de guaraná Coca-Cola', 190, 50, '2024-05-12', 1, 4.00, 8),
+('Refrigerante de laranja Coca-Cola', 150, 35, '2024-05-13', 1, 4.00, 8),
+('Refrigerante de limão Coca-Cola', 200, 45, '2024-05-14', 1, 4.00, 8);
 
 INSERT INTO fornecedores (frn_nome, frn_email)
 VALUES
@@ -123,9 +123,9 @@ VALUES
 --EXERCÍCIO 1: Crie uma view que mostra todos os produtos e suas respectivas marcas
 
 CREATE VIEW produtos_marcas AS
-SELECT produtos.prd_id, produtos.prd_nome, pprodutos.prd_valor, marcas.mrc_nome
+SELECT produtos.prd_id, produtos.prd_nome, produtos.prd_valor, marcas.mrc_nome
 FROM produtos
-JOIN marcas m ON produtos.prd_marca_id = marcas.mrc_id;
+JOIN marcas ON produtos.prd_marca_id = marcas.mrc_id;
 
 --EXERCÍCIO 2: Crie uma view que mostra todos os produtos e seus respectivos fornecedores
 
