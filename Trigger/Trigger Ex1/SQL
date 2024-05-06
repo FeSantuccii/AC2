@@ -1,0 +1,16 @@
+delimiter $
+create trigger RegistroDataCriacaoPedido
+before insert on pedidos for each row
+begin
+set new.dataPedido = now();
+end $
+delimiter ;
+
+insert into pedidos(dataPedido, nomeCliente)
+values 
+			(now(), 'Felipe Santucci'),
+      (now(), 'Nivaldo dos Santos'),
+			(now(), 'Daniel Ohata'),
+      (now(), 'Alessandra Campos');
+
+select * from pedidos;
