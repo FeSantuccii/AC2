@@ -1,0 +1,25 @@
+delimiter $
+create trigger checkDuracao  before insert on filmes
+for each row
+begin
+if 
+new.duracao < 0
+then
+set new.duracao = null;
+end if;
+end $
+delimiter ;
+
+insert into filmes (titulo, duracao) 
+values
+			('Cidade de Deus', 175),
+			('Interestelar', 169),
+			('Oppenheimer', 200),
+			('Avatar', 140),
+			('Avatar 2', 147),
+			('Avatar 3', 200),
+			('Procurando Nemo', 120),
+			('Cinderela', 98),
+      ('Cd da xuxa', -40);
+            
+select * from filmes;
