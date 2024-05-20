@@ -1,21 +1,23 @@
-CREATE table produtos(
-  id_produto		  int PRIMARY KEY auto_increment,
-	nome 			      varchar(30) not null,
-  preco			      decimal(9,2) not null,
-  estoque			    int,
-  perecivel		    boolean,
-  marca			      varchar(20),
-  nacionalidade 	varchar(20)
+CREATE table produtos(  --CRIANDO TABELAS PRODUTOS
+id_produto int PRIMARY KEY auto_increment,
+nome 	varchar(30) not null,
+preco	decimal(9,2) not null,
+estoque	int,
+perecivel  boolean,
+marca	varchar(20),
+nacionalidade 	varchar(20)
 );
 
-insert into produtos(nome, preco, estoque, perecivel, marca, nacionalidade)
-	values
-		('Suco de laranja', 7.80, 20, false, 'Aurora', 'Brasileiro'),
-    ('Biscoito Wafer', 5.60, 30, false, 'Lacta', 'Canadense'),
-    ('Salame Italiano', 15.40, 10, true, 'Sadia', 'Brasileiro'),
-    ('Chocolate amargo', 9.20, 15, false, 'Milka', 'Suiço'),
-    ('Energético em lata', 10.90, 28, false, 'Red Bull', 'Americano');
+insert into produtos(nome, preco, estoque, perecivel, marca, nacionalidade) --INSERINDO OS PRODUTOS
+values
+('Suco de laranja', 7.80, 20, false, 'Aurora', 'Brasileiro'),
+('Biscoito Wafer', 5.60, 30, false, 'Lacta', 'Canadense'),
+('Salame Italiano', 15.40, 10, true, 'Sadia', 'Brasileiro'),
+('Chocolate amargo', 9.20, 15, false, 'Milka', 'Suiço'),
+('Energético em lata', 10.90, 28, false, 'Red Bull', 'Americano');
 
+
+--EXERCÍCIOS
 select * from produtos;
 select count(id_produto) from produtos;
 select avg(preco) as media_preco from produtos;
